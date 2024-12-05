@@ -4,7 +4,10 @@
 #include <vector>
 #include <cstdint>
 
-int handleOverflow(int64_t sum, int numBits);
-int calculateAverage(const std::vector<int32_t>& values);
+class Calculator {
+public:
+    static int handleOverflow(int64_t sum, int numBits);
+    static int calculateAverage(const std::vector<int32_t>& values);
+};
 
 #endif // CALC_H
