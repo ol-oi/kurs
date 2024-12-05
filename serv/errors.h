@@ -3,6 +3,9 @@
 
 #include <string>
 
-void logError(const std::string& message, const std::string& logFile);
+class ErrorLogger {
+public:
+    static void logError(const std::string& message, const std::string& logFile);
+};
 
 #endif // ERRORS_H
