@@ -1,0 +1,27 @@
+\hypertarget{server_8h_source}{}\doxysection{server.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SERVER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SERVER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}logger.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}interface.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}calc.h"{}}}
+\DoxyCodeLine{8 \textcolor{comment}{/*}}
+\DoxyCodeLine{9 \textcolor{comment}{*@brief Класс server основной цикл для обработки сетевых операций. Запускает сервер}}
+\DoxyCodeLine{10 \textcolor{comment}{**/}}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classServer}{Server}} \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classServer}{Server}}(\textcolor{keyword}{const} std::string\& configFile, \textcolor{keywordtype}{int} port, \mbox{\hyperlink{classLogger}{Logger}}\& logger);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} start();}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     std::string configFile;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} port;}
+\DoxyCodeLine{19     \mbox{\hyperlink{classLogger}{Logger}}\& logger;}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SERVER\_H}}
+
+\end{DoxyCode}

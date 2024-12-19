@@ -1,0 +1,56 @@
+\hypertarget{server_8cpp}{}\doxysection{Файл server.\+cpp}
+\label{server_8cpp}\index{server.cpp@{server.cpp}}
+
+
+Главный файл программы.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/md5.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/rand.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}calc.\+h\char`\"{}}\newline
+Граф включаемых заголовочных файлов для server.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server_8cpp_a82e65bd243499232508bf230d2812046}\label{server_8cpp_a82e65bd243499232508bf230d2812046}} 
+std\+::string {\bfseries generate\+\_\+salt} ()
+\item 
+\mbox{\Hypertarget{server_8cpp_ab0d6e831bda86af3b79be030495f24d4}\label{server_8cpp_ab0d6e831bda86af3b79be030495f24d4}} 
+std\+::string {\bfseries hash\+\_\+password} (const std\+::string \&password, const std\+::string \&salt)
+\item 
+\mbox{\Hypertarget{server_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{server_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item Главная функция программы, запускает сервер 
+\end{DoxyItemize}\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Главный файл программы. 
+
+Этот файл содержит функцию main, которая запускает сервер. \begin{DoxyDate}{Дата}
+19.\+12.\+2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{Версия}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Автор}
+Чумазин Г.\+К. 
+\end{DoxyAuthor}
