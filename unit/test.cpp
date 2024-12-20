@@ -125,6 +125,31 @@ TEST(AuthTests, LoginWithBothInvalidCredentials) {
 TEST(AuthTests, LoginWithEmptyCredentials) {
     CHECK(!auth.login("", ""));
 }
+TEST(CalculatorTests, AverageOfEmptyVector) {
+    std::vector<double> vec;
+    CHECK_EQUAL(0.0, calculator.calculate_average(vec));
+}
+
+TEST(CalculatorTests, AverageOfSingleElementVector) {
+    std::vector<double> vec = {5.0};
+    CHECK_EQUAL(5.0, calculator.calculate_average(vec));
+}
+
+TEST(CalculatorTests, AverageOfMultipleElementsVector) {
+    std::vector<double> vec = {1.0, 2.0, 3.0, 4.0, 5.0};
+    CHECK_EQUAL(3.0, calculator.calculate_average(vec));
+}
+
+TEST(CalculatorTests, AverageWithNegativeAndPositiveNumbers) {
+    std::vector<double> vec = {-1.0, 0.0, 1.0};
+    CHECK_EQUAL(0.0, calculator.calculate_average(vec));
+}
+
+TEST(CalculatorTests, AverageOfLargeNumbers) {
+    std::vector<double> vec = {1000000.0, 2000000.0, 3000000.0};
+    CHECK_EQUAL(2000000.0, calculator.calculate_average(vec));
+}
+
 
 
 
