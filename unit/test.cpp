@@ -149,7 +149,36 @@ TEST(CalculatorTests, AverageOfLargeNumbers) {
     std::vector<double> vec = {1000000.0, 2000000.0, 3000000.0};
     CHECK_EQUAL(2000000.0, calculator.calculate_average(vec));
 }
+TEST(CommandLineInterfaceTests, HelpOption) {
+    char* argv[] = { const_cast<char*>("vcalc_server"), const_cast<char*>("-h") };
+    cli.handleArguments(2, argv);
+    CHECK(getOutput().find("Справка по программе:") != std::string::npos);
+}
 
+TEST(CommandLineInterfaceTests, VersionOption) {
+    char* argv[] = { const_cast<char*>("vcalc_server"), const_cast<char*>("-v") };
+    cli.handleArguments(2, argv);
+    CHECK(getOutput().find("Версия программы: 1.0.0") != std::string::npos);
+}
+
+TEST(CommandLineInterfaceTests, PortOption) {
+    char* argv[] = { const_cast<char*>("vcalc_server"), const_cast<char*>("-p"), const_cast<char*>("8080") };
+    cli.handleArguments(3, argv);
+    CHECK(getOutput().find("Запуск сервера на порту: 8080") != std::string::npos);
+}
+
+TEST(CommandLineInterfaceTests, UnknownOption) {
+    char* argv[] = { const_cast<char*>("vcalc_server"), const_cast<char*>("-x") };
+    
+    // Проверяем, что при неизвестной опции происходит вывод ошибки
+    CHECK_THROW(cli.handleArguments(2, argv), std::exception);
+}
+
+TEST(CommandLineInterfaceTests, DefaultPort) {
+    char* argv[] = { const_cast<char*>("vcalc_server") };
+    cli.handleArguments(1, argv);
+    CHECK(getOutput().find("Запуск сервера на порту: 33333") != std::string::npos);
+}
 
 
 
