@@ -106,6 +106,26 @@ TEST(LoggerTests, LogFileOpenError) {
             }
         }
     }
+TEST(AuthTests, LoginWithValidCredentials) {
+    CHECK(auth.login("user", "P@ssW0rd"));
+}
+
+TEST(AuthTests, LoginWithInvalidUsername) {
+    CHECK(!auth.login("invalidUser", "P@ssW0rd"));
+}
+
+TEST(AuthTests, LoginWithInvalidPassword) {
+    CHECK(!auth.login("user", "wrongPassword"));
+}
+
+TEST(AuthTests, LoginWithBothInvalidCredentials) {
+    CHECK(!auth.login("invalidUser", "wrongPassword"));
+}
+
+TEST(AuthTests, LoginWithEmptyCredentials) {
+    CHECK(!auth.login("", ""));
+}
+
 
 
 // Функция для запуска всех тестов
