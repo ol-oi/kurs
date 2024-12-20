@@ -45,8 +45,70 @@ TEST(SocketCreationTest) {
     
     close(server_fd); // Закрываем сокет после теста
 }
+TEST(LoggerTests, LogMessageSuccessfully) {
+    Logger logger(logFileName);
+    std::string message = "This is a test log message.";
+
+    // Логируем сообщение
+    logger.log(message);
+
+    // Проверяем, что сообщение записано в файл
+    std::ifstream in(logFileName);
+    std::string line;
+    bool messageFound = false;
+
+    if (in.is_open()) {
+        while (std::getline(in, line)) {
+            if (line == message) {
+                messageFound = true;
+                break;
+            }
+        }
+    }
+    
+    CHECK(messageFound);
+}
+
+TEST(LoggerTests, LogFileCreation) {
+    Logger logger(logFileName);
+    
+    // Логируем пустое сообщение
+    logger.log("");
+
+    // Проверяем, что файл создан
+    std::ifstream in(logFileName);
+    CHECK(in.is_open());
+}
+
+TEST(LoggerTests, LogFileOpenError) {
+    // Создаем логгер с недоступным файлом
+    Logger logger("/invalid/path/log.txt");
+
+    // Ожидаем, что сообщение об ошибке будет выведено в stderr
+    // Для этого перенаправляем stderr во временный файл
+    std::string tempFile = "temp_stderr.txt";
+    freopen(tempFile.c_str(), "w", stderr);
+
+    logger.log("Test message");
+
+    fclose(stderr);
+    
+    // Читаем содержимое временного файла
+    std::ifstream in(tempFile);
+    std::string errorLine;
+    bool errorMessageFound = false;
+
+    if (in.is_open()) {
+        while (std::getline(in, errorLine)) {
+            if (errorLine.find("Could not open log file") != std::string::npos) {
+                errorMessageFound = true;
+                break;
+            }
+        }
+    }
+
 
 // Функция для запуска всех тестов
-void run_tests() {
-    UnitTest::RunAllTests();
+int main(int argc, char** argv) {
+    return UnitTest::RunAllTests();
 }
