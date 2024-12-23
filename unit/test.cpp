@@ -1,7 +1,7 @@
 #include <UnitTest++/UnitTest++.h>
-#include "../../servak/source/headers/auth.h"
-#include "../../servak/source/headers/calc.h"
-#include "../../servak/source/headers/logger.h"
+#include "../../kurs/source/headers/auth.h"
+#include "../../kurs/source/headers/calc.h"
+#include "../../kurs/source/headers/logger.h"
 #include <iostream>
 #include <sstream>
 #include <cstdlib>
