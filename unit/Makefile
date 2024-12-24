@@ -3,8 +3,8 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++11
 
 # Определяем директории
-SRC_DIR = ../../servak/source/headers
-TEST_DIR = ../../servak/source
+SRC_DIR = ../../kurs/source/headers
+TEST_DIR = ../../kurs/source
 
 # Исходные файлы
 SRC_FILES = $(SRC_DIR)/auth.cpp
